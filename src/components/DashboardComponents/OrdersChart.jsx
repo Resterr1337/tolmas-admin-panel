@@ -6,6 +6,9 @@ import {
 	AccordionSummary,
 } from "@mui/material";
 import ArrowToDownSVG from "@/assets/DashboardPage/arrowToDown.svg?react";
+import TelegramSVG from "@/assets/DashboardPage/telegramLogo.svg?react";
+
+import { formatPrice } from "@/utils";
 
 const OrdersChart = () => {
 	return (
@@ -18,7 +21,6 @@ const OrdersChart = () => {
 				flexBasis: "40%",
 				height: "400px",
 				flexDirection: "column",
-				justifyContent: "space-between",
 				padding: "10px",
 			}}
 		>
@@ -26,10 +28,12 @@ const OrdersChart = () => {
 				position={"relative"}
 				display={"flex"}
 				justifyContent={"space-between"}
-                height={"70px"}
-                borderBottom={"1px solid #E1E1E1"}
+				height={"70px"}
+				borderBottom={"1px solid #E1E1E1"}
 			>
-				<Typography zIndex={1} variant="subtitle1">Статистика заказов</Typography>
+				<Typography zIndex={1} variant="subtitle1">
+					Статистика заказов
+				</Typography>
 				<Accordion
 					disableGutters={true}
 					elevation={0}
@@ -79,8 +83,24 @@ const OrdersChart = () => {
 				sx={{
 					display: "flex",
 					justifyContent: "start",
+					flexDirection: "column",
+					gap: "10px",
 				}}
-			></Box>
+			>
+				<Typography my={"10px"} fontWeight={700} variant="h5">
+					{formatPrice(1200)} заказов
+				</Typography>
+				<Box width={"100%"} display={"flex"} gap={"12px"}>
+					<TelegramSVG />
+					<Box display={"flex"} flexGrow={1} flexDirection={"column"}>
+                        <Box display={"flex"} flexGrow={1} alignItems={"center"} justifyContent={"space-between"}>
+                            <Typography variant="subtitle2">Телеграм Бот</Typography>
+                            <Typography variant="subtitle2">1200</Typography>
+                        </Box>
+                        <Box flexGrow={1} borderRadius={"30px"} bgcolor={"#2588FF"}></Box>
+                    </Box>
+				</Box>
+			</Box>
 		</Box>
 	);
 };

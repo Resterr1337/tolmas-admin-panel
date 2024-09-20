@@ -34,10 +34,10 @@ const SalaryChart = () => {
 					Статистика по доходу
 				</Typography>
 				<Accordion
-					zIndex={1}
 					disableGutters={true}
 					elevation={0}
 					sx={{
+						zIndex:"1",
 						position: "absolute",
 						right: "0px",
 						top: "0px",
@@ -83,7 +83,7 @@ const SalaryChart = () => {
 				sx={{
 					display: "flex",
 					justifyContent: "start",
-					width: "650px",
+					flexGrow:"1",
 
 					"& MuiChartsAxis-tick , MuiChartsAxis-line , .MuiChartsGrid-line":
 						{
@@ -92,12 +92,16 @@ const SalaryChart = () => {
 					"& .MuiChartsAxis-tickLabel": {
 						color: "#8F9098",
 					},
+
+					"& .MuiBarElement-root":{
+						width:"40px !important"
+					},
 				}}
 			>
 				<BarChart
-					width={600}
+					width={800}
 					height={380}
-					grid={{ horizontal: true, vertical: "true" }}
+					grid={{horizontal:true, vertical:true}}
 					series={[
 						{
 							data: [

@@ -3,6 +3,9 @@ import { Salary } from "@/components/DashboardComponents/Salary";
 import { OrdersCount } from "@/components/DashboardComponents/OrdersCount";
 import { SalaryChart } from "@/components/DashboardComponents/SalaryChart";
 import { OrdersChart } from "@/components/DashboardComponents/OrdersChart";
+import { ProductChart } from "@/components/DashboardComponents/ProductChart";
+import { ClientsChart } from "@/components/DashboardComponents/ClientsChart";
+
 
 const DashboardPage = () => {
 	return (
@@ -22,6 +25,8 @@ const DashboardPage = () => {
 				<OrdersCount/>
                 <SalaryChart/>
 				<OrdersChart/>
+				<ProductChart/>
+				<ClientsChart/>
 			</Box>
 		</>
 	);

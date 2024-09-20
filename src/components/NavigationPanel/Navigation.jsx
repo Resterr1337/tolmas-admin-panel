@@ -19,10 +19,13 @@ import SettingsSVG from "@/assets/NavigationPanel/settings.svg?react";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import { isNavigationPanelOpen } from "@/store";
 
 // # Сделать так чтобы , кнопки появлялись в зависимости от роли
 
-const Navigation = ({roleobject}) => {
+const Navigation = ({ roleobject }) => {
+	const { isOpen, setIsOpen } = isNavigationPanelOpen();
+
 	const NavigateFunc = useNavigate();
 	const { pathname } = useLocation();
 	const [activeLink, setActiveLink] = useState(pathname);
@@ -48,7 +51,7 @@ const Navigation = ({roleobject}) => {
 					textTransform: "none",
 					display: "flex",
 					alignItems: "center",
-					justifyContent: "start",
+					justifyContent: isOpen ? "start" : "center",
 					gap: "5px",
 					color: activeLink == "/" ? "#1f2024" : "#f2f2f2",
 
@@ -62,7 +65,14 @@ const Navigation = ({roleobject}) => {
 				fullWidth
 			>
 				<DashboardSVG />
-				<Typography fontWeight={700} variant="subtitle1">
+				<Typography
+					sx={{
+						fontSize: isOpen ? "1rem" : "0rem",
+						transition: "all 500ms",
+					}}
+					fontWeight={700}
+					variant="subtitle1"
+				>
 					Дашборд
 				</Typography>
 			</Button>
@@ -75,7 +85,7 @@ const Navigation = ({roleobject}) => {
 					textTransform: "none",
 					display: "flex",
 					alignItems: "center",
-					justifyContent: "start",
+					justifyContent: isOpen ? "start" : "center",
 					gap: "5px",
 					color: activeLink == "/orders" ? "#1f2024" : "#f2f2f2",
 
@@ -89,7 +99,14 @@ const Navigation = ({roleobject}) => {
 				fullWidth
 			>
 				<OrdersSVG />
-				<Typography fontWeight={700} variant="subtitle1">
+				<Typography
+					sx={{
+						fontSize: isOpen ? "1rem" : "0rem",
+						transition: "all 500ms",
+					}}
+					fontWeight={700}
+					variant="subtitle1"
+				>
 					Заказы
 				</Typography>
 			</Button>
@@ -102,7 +119,7 @@ const Navigation = ({roleobject}) => {
 					textTransform: "none",
 					display: "flex",
 					alignItems: "center",
-					justifyContent: "start",
+					justifyContent: isOpen ? "start" : "center",
 					gap: "5px",
 					color: activeLink == "/products" ? "#1f2024" : "#f2f2f2",
 
@@ -117,14 +134,26 @@ const Navigation = ({roleobject}) => {
 				fullWidth
 			>
 				<ProductSVG />
-				<Typography fontWeight={700} variant="subtitle1">
+				<Typography
+					sx={{
+						fontSize: isOpen ? "1rem" : "0rem",
+						transition: "all 500ms",
+					}}
+					fontWeight={700}
+					variant="subtitle1"
+				>
 					Продукты
 				</Typography>
 			</Button>
 
 			<Accordion
 				onChange={() => {
-					handleAccordionClick("/marketing");
+					if (isOpen) {
+						handleAccordionClick("/marketing");
+					} else {
+						setIsOpen();
+						handleAccordionClick("/marketing");
+					}
 				}}
 				disableGutters={true}
 				expanded={activeLink == "/marketing" ? true : false}
@@ -138,7 +167,7 @@ const Navigation = ({roleobject}) => {
 				}}
 			>
 				<AccordionSummary
-					expandIcon={<ArrowToDownSVG />}
+					expandIcon={isOpen ? <ArrowToDownSVG /> : <></>}
 					aria-controls="panel1-content"
 					id="panel1-header"
 					sx={{
@@ -147,12 +176,16 @@ const Navigation = ({roleobject}) => {
 						textTransform: "none",
 						display: "flex",
 						alignItems: "center",
-						justifyContent: "start",
+						justifyContent: isOpen ? "start" : "center",
 						borderRadius: "5px",
 						padding: "0px 0px",
 						margin: "5px 5px",
 						color:
 							activeLink == "/marketing" ? "#1f2024" : "#f2f2f2",
+
+						".MuiAccordionSummary-content": {
+							justifyContent: isOpen ? "start" : "center",
+						},
 
 						".path_fill": {
 							fill:
@@ -169,16 +202,46 @@ const Navigation = ({roleobject}) => {
 					}}
 				>
 					<MarketingSVG />
-					<Typography mx={"5px"} fontWeight={700} variant="subtitle1">
+					<Typography
+						sx={{
+							display: isOpen ? "block" : "none",
+							transition: "all 500ms",
+						}}
+						mx={"5px"}
+						fontWeight={700}
+						variant="subtitle1"
+					>
 						Маркетинг
 					</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					<Typography variant="subtitle1">
+					<Typography
+						sx={{
+							fontSize: isOpen ? "1rem" : "0rem",
+							transition: "all 500ms",
+						}}
+						variant="subtitle1"
+					>
 						Рекламный баннер
 					</Typography>
-					<Typography variant="subtitle1">Скидки</Typography>
-					<Typography variant="subtitle1">Промокоды</Typography>
+					<Typography
+						sx={{
+							fontSize: isOpen ? "1rem" : "0rem",
+							transition: "all 500ms",
+						}}
+						variant="subtitle1"
+					>
+						Скидки
+					</Typography>
+					<Typography
+						sx={{
+							fontSize: isOpen ? "1rem" : "0rem",
+							transition: "all 500ms",
+						}}
+						variant="subtitle1"
+					>
+						Промокоды
+					</Typography>
 				</AccordionDetails>
 			</Accordion>
 			<Button
@@ -190,7 +253,7 @@ const Navigation = ({roleobject}) => {
 					textTransform: "none",
 					display: "flex",
 					alignItems: "center",
-					justifyContent: "start",
+					justifyContent: isOpen ? "start" : "center",
 					gap: "5px",
 					color: activeLink == "/clients" ? "#1f2024" : "#f2f2f2",
 
@@ -205,7 +268,14 @@ const Navigation = ({roleobject}) => {
 				fullWidth
 			>
 				<ClientsSVG />
-				<Typography fontWeight={700} variant="subtitle1">
+				<Typography
+					sx={{
+						fontSize: isOpen ? "1rem" : "0rem",
+						transition: "all 500ms",
+					}}
+					fontWeight={700}
+					variant="subtitle1"
+				>
 					Клиенты
 				</Typography>
 			</Button>
@@ -218,7 +288,7 @@ const Navigation = ({roleobject}) => {
 					textTransform: "none",
 					display: "flex",
 					alignItems: "center",
-					justifyContent: "start",
+					justifyContent: isOpen ? "start" : "center",
 					gap: "5px",
 					color: activeLink == "/filials" ? "#1f2024" : "#f2f2f2",
 
@@ -233,7 +303,14 @@ const Navigation = ({roleobject}) => {
 				fullWidth
 			>
 				<FilialSVG />
-				<Typography fontWeight={700} variant="subtitle1">
+				<Typography
+					sx={{
+						fontSize: isOpen ? "1rem" : "0rem",
+						transition: "all 500ms",
+					}}
+					fontWeight={700}
+					variant="subtitle1"
+				>
 					Филиалы
 				</Typography>
 			</Button>
@@ -246,7 +323,7 @@ const Navigation = ({roleobject}) => {
 					textTransform: "none",
 					display: "flex",
 					alignItems: "center",
-					justifyContent: "start",
+					justifyContent: isOpen ? "start" : "center",
 					gap: "5px",
 					color: activeLink == "/delivery" ? "#1f2024" : "#f2f2f2",
 
@@ -261,7 +338,14 @@ const Navigation = ({roleobject}) => {
 				fullWidth
 			>
 				<DeliverySVG />
-				<Typography fontWeight={700} variant="subtitle1">
+				<Typography
+					sx={{
+						fontSize: isOpen ? "1rem" : "0rem",
+						transition: "all 500ms",
+					}}
+					fontWeight={700}
+					variant="subtitle1"
+				>
 					Доставка
 				</Typography>
 			</Button>
@@ -276,12 +360,11 @@ const Navigation = ({roleobject}) => {
 					width: "100%",
 					padding: "0px",
 					borderRadius: "5px",
-					background:
-						activeLink == "/settings" ? "white" : "#1F2024",
+					background: activeLink == "/settings" ? "white" : "#1F2024",
 				}}
 			>
 				<AccordionSummary
-					expandIcon={<ArrowToDownSVG />}
+					expandIcon={isOpen? <ArrowToDownSVG /> : <></>}
 					aria-controls="panel1-content"
 					id="panel1-header"
 					sx={{
@@ -290,12 +373,16 @@ const Navigation = ({roleobject}) => {
 						textTransform: "none",
 						display: "flex",
 						alignItems: "center",
-						justifyContent: "start",
+						justifyContent: isOpen ? "start" : "center",
 						borderRadius: "5px",
 						padding: "0px 0px",
 						margin: "5px 5px",
 						color:
 							activeLink == "/settings" ? "#1f2024" : "#f2f2f2",
+
+						".MuiAccordionSummary-content": {
+							justifyContent: isOpen ? "start" : "center",
+						},
 
 						".path_fill": {
 							fill:
@@ -311,14 +398,38 @@ const Navigation = ({roleobject}) => {
 						},
 					}}
 				>
-					<SettingsSVG style={{marginLeft:"3px"}}/>
-					<Typography mx={"5px"} fontWeight={700} variant="subtitle1">
+					<SettingsSVG style={{ marginLeft: "3px" }} />
+					<Typography
+						sx={{
+							display: isOpen ? "block" : "none",
+							transition: "all 500ms",
+						}}
+						mx={"5px"}
+						fontWeight={700}
+						variant="subtitle1"
+					>
 						Настройки
 					</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					<Typography variant="subtitle1">Сотрудники</Typography>
-					<Typography variant="subtitle1">Роли</Typography>
+					<Typography
+						sx={{
+							fontSize: isOpen ? "1rem" : "0rem",
+							transition: "all 500ms",
+						}}
+						variant="subtitle1"
+					>
+						Сотрудники
+					</Typography>
+					<Typography
+						sx={{
+							fontSize: isOpen ? "1rem" : "0rem",
+							transition: "all 500ms",
+						}}
+						variant="subtitle1"
+					>
+						Роли
+					</Typography>
 				</AccordionDetails>
 			</Accordion>
 		</>

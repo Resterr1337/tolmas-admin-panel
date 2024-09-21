@@ -12,7 +12,7 @@ const NavigationPanel = () => {
 		<>
 			<Box
 				sx={{
-					zIndex: "101",
+					zIndex: "11",
 					display: "flex",
 					flexDirection: "column",
 					alignItems: "center",

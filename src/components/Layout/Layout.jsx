@@ -13,7 +13,6 @@ const Layout = () => {
 			<Header />
 			<main
 				style={{
-					zIndex: "1",
 					position: "absolute",
 					left: isOpen? "250px": "70px",
 					top: "100px",

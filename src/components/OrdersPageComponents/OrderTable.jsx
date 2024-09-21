@@ -128,7 +128,7 @@ const OrderTable = ({ ordersArray }) => {
 					>
 						<Typography
 							variant="subtitle1"
-							fontWeigh={700}
+							fontWeight={500}
 							color={"white"}
 						>
 							ID
@@ -139,12 +139,12 @@ const OrderTable = ({ ordersArray }) => {
 						alignItems={"center"}
 						justifyContent={"start"}
 						flexShrink={1}
-						flexBasis={"160px"}
+						flexBasis={"220px"}
 						sx={{padding: "10px" }}
 					>
 						<Typography
 							variant="subtitle1"
-							fontWeigh={700}
+							fontWeight={500}
 							color={"white"}
 						>
 							Имя клиента
@@ -155,12 +155,12 @@ const OrderTable = ({ ordersArray }) => {
 						alignItems={"center"}
 						justifyContent={"start"}
 						flexShrink={1}
-						flexBasis={"200px"}
+						flexBasis={"260px"}
 						sx={{padding: "10px" }}
 					>
 						<Typography
 							variant="subtitle1"
-							fontWeigh={700}
+							fontWeight={500}
 							color={"white"}
 						>
 							Дата и время
@@ -176,7 +176,7 @@ const OrderTable = ({ ordersArray }) => {
 					>
 						<Typography
 							variant="subtitle1"
-							fontWeigh={700}
+							fontWeight={500}
 							color={"white"}
 						>
 							Стоимость
@@ -192,7 +192,7 @@ const OrderTable = ({ ordersArray }) => {
 					>
 						<Typography
 							variant="subtitle1"
-							fontWeigh={700}
+							fontWeight={500}
 							color={"white"}
 						>
 							Способ оплаты
@@ -208,7 +208,7 @@ const OrderTable = ({ ordersArray }) => {
 					>
 						<Typography
 							variant="subtitle1"
-							fontWeigh={700}
+							fontWeight={500}
 							color={"white"}
 						>
 							Тип доставки
@@ -224,7 +224,7 @@ const OrderTable = ({ ordersArray }) => {
 					>
 						<Typography
 							variant="subtitle1"
-							fontWeigh={700}
+							fontWeight={500}
 							color={"white"}
 						>
 							Статус
@@ -235,12 +235,12 @@ const OrderTable = ({ ordersArray }) => {
 						alignItems={"center"}
 						justifyContent={"start"}
 						flexShrink={1}
-						flexBasis={"120px"}
+						flexBasis={"200px"}
 						sx={{padding: "10px" }}
 					>
 						<Typography
 							variant="subtitle1"
-							fontWeigh={700}
+							fontWeight={500}
 							color={"white"}
 						>
 							Платформа
@@ -255,7 +255,7 @@ const OrderTable = ({ ordersArray }) => {
 					>
 						<Typography
 							variant="subtitle1"
-							fontWeigh={700}
+							fontWeight={500}
 							color={"white"}
 						>
 							Действие

@@ -28,7 +28,7 @@ const Header = () => {
 		<>
 			<Box
 				sx={{
-					zIndex: "100",
+					zIndex: "10",
 					width: isOpen? "calc(100vw - 240px)": "calc(100vw - 60px)",
 					transition:"all 500ms",
 					height: "100px",

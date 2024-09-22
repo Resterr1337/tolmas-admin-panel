@@ -149,21 +149,25 @@ const Navigation = ({ roleobject }) => {
 			<Accordion
 				onChange={() => {
 					if (isOpen) {
-						handleAccordionClick("/marketing");
+						handleAccordionClick("/marketing/banner");
 					} else {
 						setIsOpen();
-						handleAccordionClick("/marketing");
+						handleAccordionClick("/marketing/banner");
 					}
 				}}
 				disableGutters={true}
-				expanded={activeLink == "/marketing" ? true : false}
+				expanded={
+					activeLink.split("/")[1] == "marketing" ? true : false
+				}
 				elevation={0}
 				sx={{
 					width: "100%",
 					padding: "0px",
 					borderRadius: "5px",
 					background:
-						activeLink == "/marketing" ? "white" : "#1F2024",
+						activeLink.split("/")[1] == "marketing"
+							? "white"
+							: "#1F2024",
 				}}
 			>
 				<AccordionSummary
@@ -172,7 +176,9 @@ const Navigation = ({ roleobject }) => {
 					id="panel1-header"
 					sx={{
 						background:
-							activeLink == "/marketing" ? "#DCDCDC" : "#1F2024",
+							activeLink.split("/")[1] == "marketing"
+								? "#DCDCDC"
+								: "#1F2024",
 						textTransform: "none",
 						display: "flex",
 						alignItems: "center",
@@ -181,7 +187,9 @@ const Navigation = ({ roleobject }) => {
 						padding: "0px 0px",
 						margin: "5px 5px",
 						color:
-							activeLink == "/marketing" ? "#1f2024" : "#f2f2f2",
+							activeLink.split("/")[1] == "marketing"
+								? "#1f2024"
+								: "#f2f2f2",
 
 						".MuiAccordionSummary-content": {
 							justifyContent: isOpen ? "start" : "center",
@@ -189,13 +197,13 @@ const Navigation = ({ roleobject }) => {
 
 						".path_fill": {
 							fill:
-								activeLink == "/marketing"
+								activeLink.split("/")[1] == "marketing"
 									? "#1f2024"
 									: "#f2f2f2",
 						},
 						".path_stroke": {
 							stroke:
-								activeLink == "/marketing"
+								activeLink.split("/")[1] == "marketing"
 									? "#1f2024"
 									: "#f2f2f2",
 						},
@@ -204,10 +212,10 @@ const Navigation = ({ roleobject }) => {
 					<MarketingSVG />
 					<Typography
 						sx={{
-							display: isOpen ? "block" : "none",
+							fontSize: isOpen ? "1rem" : "0rem",
 							transition: "all 500ms",
 						}}
-						mx={"5px"}
+						mx={isOpen ? "5px" : "0px"}
 						fontWeight={700}
 						variant="subtitle1"
 					>
@@ -216,7 +224,14 @@ const Navigation = ({ roleobject }) => {
 				</AccordionSummary>
 				<AccordionDetails>
 					<Typography
+						onClick={() => handleButtonClick("/marketing/banner")}
+						color={
+							activeLink == "/marketing/banner"
+								? "#000000"
+								: "#8F9098"
+						}
 						sx={{
+							cursor: "pointer",
 							fontSize: isOpen ? "1rem" : "0rem",
 							transition: "all 500ms",
 						}}
@@ -225,7 +240,14 @@ const Navigation = ({ roleobject }) => {
 						Рекламный баннер
 					</Typography>
 					<Typography
+						onClick={() => handleButtonClick("/marketing/discount")}
+						color={
+							activeLink == "/marketing/discount"
+								? "#000000"
+								: "#8F9098"
+						}
 						sx={{
+							cursor: "pointer",
 							fontSize: isOpen ? "1rem" : "0rem",
 							transition: "all 500ms",
 						}}
@@ -234,7 +256,14 @@ const Navigation = ({ roleobject }) => {
 						Скидки
 					</Typography>
 					<Typography
+						onClick={() => handleButtonClick("/marketing/promo")}
+						color={
+							activeLink == "/marketing/promo"
+								? "#000000"
+								: "#8F9098"
+						}
 						sx={{
+							cursor: "pointer",
 							fontSize: isOpen ? "1rem" : "0rem",
 							transition: "all 500ms",
 						}}
@@ -249,20 +278,31 @@ const Navigation = ({ roleobject }) => {
 					handleButtonClick("/clients");
 				}}
 				sx={{
-					background: activeLink == "/clients" ? "#DCDCDC" : "none",
+					background:
+						activeLink.split("/")[1] == "clients"
+							? "#DCDCDC"
+							: "none",
 					textTransform: "none",
 					display: "flex",
 					alignItems: "center",
 					justifyContent: isOpen ? "start" : "center",
 					gap: "5px",
-					color: activeLink == "/clients" ? "#1f2024" : "#f2f2f2",
+					color:
+						activeLink.split("/")[1] == "clients"
+							? "#1f2024"
+							: "#f2f2f2",
 
 					".path_fill": {
-						fill: activeLink == "/clients" ? "#1f2024" : "#f2f2f2",
+						fill:
+							activeLink.split("/")[1] == "clients"
+								? "#1f2024"
+								: "#f2f2f2",
 					},
 					".path_stroke": {
 						stroke:
-							activeLink == "/clients" ? "#1f2024" : "#f2f2f2",
+							activeLink.split("/")[1] == "clients"
+								? "#1f2024"
+								: "#f2f2f2",
 					},
 				}}
 				fullWidth
@@ -364,7 +404,7 @@ const Navigation = ({ roleobject }) => {
 				}}
 			>
 				<AccordionSummary
-					expandIcon={isOpen? <ArrowToDownSVG /> : <></>}
+					expandIcon={isOpen ? <ArrowToDownSVG /> : <></>}
 					aria-controls="panel1-content"
 					id="panel1-header"
 					sx={{

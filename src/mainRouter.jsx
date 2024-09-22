@@ -8,6 +8,10 @@ import { ClientsPage } from "./pages/ClientsPage";
 import { DeliveryPage } from "./pages/DeliveryPage";
 import { SettingsPage } from "./pages/SettingsPage";
 import { FilialsPage } from "./pages/FilialsPage";
+import { BannerPage } from "./pages/BannerPage";
+import { DiscountPage } from "./pages/DiscountPage";
+import { PromoPage } from "./pages/PromoPage";
+import { ClientPage } from "./pages/ClientPage";
 
 const mainRouter = createBrowserRouter([
 	{
@@ -30,10 +34,28 @@ const mainRouter = createBrowserRouter([
 			{
 				path: "marketing",
 				element: <MarketingPage />,
+				children:[
+					{
+						path:"banner",
+						element: <BannerPage/>,
+					},
+					{
+						path:"discount",
+						element: <DiscountPage/>
+					},
+					{
+						path:"promo",
+						element: <PromoPage/>
+					}
+				]
 			},
 			{
 				path: "clients",
 				element: <ClientsPage />,
+			},
+			{
+				path:"clients/:clientID",
+				element: <ClientPage/>
 			},
 			{
 				path: "filials",

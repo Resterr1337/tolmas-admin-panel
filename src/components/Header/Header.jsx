@@ -8,20 +8,21 @@ const Header = () => {
 
 	const { pathname } = useLocation();
 	
+
 	const headersObj = {
-		"/orders": "Заказы",
-		"/": "Дашборд",
-		"/products": "Продукты",
-		"/marketing": "Маркетинг",
-		"/clients": "Клиенты",
-		"/filials": "Филиалы",
-		"/delivery": "Доставка",
-		"/settings": "Настройки",
+		"orders": "Заказы",
+		"": "Дашборд",
+		"products": "Продукты",
+		"marketing": "Маркетинг",
+		"clients": "Клиенты",
+		"filials": "Филиалы",
+		"delivery": "Доставка",
+		"settings": "Настройки",
 	};
 	
-	const [headerTitle, setHeaderTitle] = useState(headersObj[pathname]);
+	const [headerTitle, setHeaderTitle] = useState(headersObj[pathname.split("/")[1]]);
 	useEffect(() => {
-		setHeaderTitle(headersObj[pathname]);
+		setHeaderTitle(headersObj[pathname.split("/")[1]]);
 	}, [pathname]);
 
 	return (

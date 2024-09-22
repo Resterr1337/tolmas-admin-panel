@@ -336,7 +336,7 @@ const OrderModal = ({ setIsModalOpen, isModalOpen, orderItem }) => {
 					</Box>
 					<Box
 						width={"100%"}
-						borderTop={"1px dashed #8F9098"}
+						borderTop={"2px dashed #8F9098"}
 						padding={"20px 10px 10px 10px"}
 						display={"flex"}
 						flexDirection={"column"}

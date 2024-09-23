@@ -14,7 +14,7 @@ import CloseModalSVG from "@/assets/OrdersPage/OrderModal/closeModal.svg?react";
 import PersentSVG from "@/assets/DiscountPage/percent.svg?react";
 import DatePickerSVG from "@/assets/DiscountPage/datePickerIcon.svg?react";
 import TimePickerSVG from "@/assets/DiscountPage/timePickerIcon.svg?react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { formatPrice } from "@/utils";
 
@@ -111,7 +111,6 @@ const DiscountAddModal = ({ isModalOpen, setIsModalOpen }) => {
 						zIndex: "13",
 						position: "fixed",
 						right: "30%",
-						// transform:"translateX(50%)",
 						transition: "all 700ms",
 						top: isModalOpen ? "20%" : "200%",
 						height: "60%",

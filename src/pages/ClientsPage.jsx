@@ -1,5 +1,5 @@
-import { ClientTableElement } from "@/components/ClientPage/ClientTableElement";
-import { ClientsTableHeader } from "@/components/ClientPage/ClientTableHeader";
+import { ClientTableElement } from "@/components/ClientsPage/ClientTableElement";
+import { ClientsTableHeader } from "@/components/ClientsPage/ClientTableHeader";
 import { Box, Typography } from "@mui/material";
 
 const ClientsPage = () => {

@@ -1,71 +1,71 @@
 import { Box, Typography } from "@mui/material";
-import { formatPrice } from "@/utils";
-const ClientOrderTableElement = ({ order }) => {
+
+const DeliveryTableHeader = () => {
 	return (
 		<Box
 			display={"flex"}
 			flexGrow={1}
 			alignItems={"center"}
-			bgcolor={"white"}
+			bgcolor={"#677697"}
 			p={"10px"}
 		>
 			<Typography
 				variant={"subtitle1"}
-				fontWeight={500}
-				color="black"
+				fontWeight={700}
+				color="white"
 				display={"flex"}
-				flexBasis={"100px"}
+				flexBasis={"30px"}
 			>
-				{order.id}
+				№
 			</Typography>
 			<Typography
 				variant={"subtitle1"}
-				fontWeight={500}
-				color="black"
+				fontWeight={700}
+				color="white"
 				display={"flex"}
 				flexBasis={"220px"}
 			>
-				{order.orderDate}
+				Марка машины
 			</Typography>
 			<Typography
 				variant={"subtitle1"}
-				fontWeight={500}
-				color="black"
+				fontWeight={700}
+				color="white"
 				display={"flex"}
 				flexBasis={"200px"}
 			>
-				{formatPrice(order.totalCost)} UZS
+				Номер машины
 			</Typography>
 			<Typography
 				variant={"subtitle1"}
-				fontWeight={500}
-				color="black"
+				fontWeight={700}
+                flexGrow={1}
+				color="white"
 				display={"flex"}
 				flexBasis={"300px"}
 			>
-				{order.paymentWay}
+				Номер телефона
 			</Typography>
 			<Typography
 				variant={"subtitle1"}
-				fontWeight={500}
-				color="black"
+				fontWeight={700}
+				color="white"
 				display={"flex"}
 				flexBasis={"200px"}
 			>
-				{order.deliveryWay}
+				Кол-во заказов
 			</Typography>
 			<Typography
 				variant={"subtitle1"}
-				fontWeight={500}
-				color="black"
+				fontWeight={700}
+				color="white"
 				display={"flex"}
-				flexGrow={"1"}
-				flexBasis={"100px"}
+				flexBasis={"200px"}
 			>
-				{order.status}
+				Действия
 			</Typography>
 		</Box>
 	);
 };
 
-export { ClientOrderTableElement };
+export { DeliveryTableHeader };

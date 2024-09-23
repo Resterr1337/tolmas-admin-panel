@@ -1,5 +1,5 @@
 import CloseModalSVG from "@/assets/OrdersPage/OrderModal/closeModal.svg?react";
-import { Box, Typography, IconButton, Button , TextField} from "@mui/material";
+import { Box, Typography, IconButton, Button, TextField } from "@mui/material";
 
 const ClientMessegeModal = ({ isModalOpen, setIsModalOpen }) => {
 	return (
@@ -35,7 +35,7 @@ const ClientMessegeModal = ({ isModalOpen, setIsModalOpen }) => {
 					right: "30%",
 					transition: "all 700ms",
 					top: isModalOpen ? "20%" : "200%",
-					height: "60%",
+					height: "500px",
 					width: "40%",
 					background: "#F4F7F9",
 					display: "flex",
@@ -63,45 +63,56 @@ const ClientMessegeModal = ({ isModalOpen, setIsModalOpen }) => {
 					</IconButton>
 				</Box>
 
-                <Box
-                    width={"100%"}
-                    display={"flex"}
-                    flexDirection={"column"}
-                    
-                >
-                    <Typography variant="subtitle1">Сообщение*</Typography>
-                    <TextField  sx={{bgcolor:"white", borderRadius:"10px" , border:"1px solid #D9D9D9"}} multiline={true} minRows={13} maxRows={15} placeholder="Напишите сообщение"></TextField>
-                </Box>
+				<Box
+					mt={"10px"}
+					width={"100%"}
+					display={"flex"}
+					flexDirection={"column"}
+				>
+					<Typography variant="subtitle1">Сообщение*</Typography>
+					<TextField
+						sx={{
+							bgcolor: "white",
+							borderRadius: "10px",
+							border: "1px solid #D9D9D9",
+						}}
+						multiline={true}
+						minRows={10}
+						maxRows={15}
+						placeholder="Напишите сообщение"
+					></TextField>
+				</Box>
 
-                <Box
-						display={"flex"}
-						alignItems={"center"}
-						justifyContent={"space-between"}
+				<Box
+					mt={"10px"}
+					display={"flex"}
+					alignItems={"center"}
+					justifyContent={"space-between"}
+				>
+					<Button
+						onClick={() => setIsModalOpen(false)}
+						sx={{ width: "49%", p: "10px", bgcolor: "#F04040" }}
 					>
-						<Button
-                            onClick={() => setIsModalOpen(false)}
-							sx={{ width: "49%", p: "10px", bgcolor: "#F04040" }}
+						<Typography
+							color="white"
+							fontWeight={700}
+							variant="subtitel1"
 						>
-							<Typography
-								color="white"
-								fontWeight={700}
-								variant="subtitel1"
-							>
-								Отмена
-							</Typography>
-						</Button>
-						<Button
-							sx={{ width: "49%", p: "10px", bgcolor: "#677697" }}
+							Отмена
+						</Typography>
+					</Button>
+					<Button
+						sx={{ width: "49%", p: "10px", bgcolor: "#677697" }}
+					>
+						<Typography
+							color="white"
+							fontWeight={700}
+							variant="subtitel1"
 						>
-							<Typography
-								color="white"
-								fontWeight={700}
-								variant="subtitel1"
-							>
-								Отправить
-							</Typography>
-						</Button>
-					</Box>
+							Отправить
+						</Typography>
+					</Button>
+				</Box>
 			</Box>
 		</Box>
 	);

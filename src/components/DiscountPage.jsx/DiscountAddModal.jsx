@@ -113,7 +113,7 @@ const DiscountAddModal = ({ isModalOpen, setIsModalOpen }) => {
 						right: "30%",
 						transition: "all 700ms",
 						top: isModalOpen ? "20%" : "200%",
-						height: "60%",
+						height: "500px",
 						width: "40%",
 						background: "#F4F7F9",
 						display: "flex",
@@ -142,7 +142,7 @@ const DiscountAddModal = ({ isModalOpen, setIsModalOpen }) => {
 					</Box>
 
 					<Box
-						mt={"50px"}
+						mt={"30px"}
 						display={"flex"}
 						alignItems={"center"}
 						justifyContent={"space-between"}

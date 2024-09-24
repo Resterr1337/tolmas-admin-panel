@@ -112,7 +112,7 @@ const Navigation = ({ roleobject }) => {
 			</Button>
 			<Button
 				onClick={() => {
-					handleButtonClick("/products");
+					handleButtonClick("/products/products");
 				}}
 				sx={{
 					background:
@@ -402,16 +402,26 @@ const Navigation = ({ roleobject }) => {
 			</Button>
 			<Accordion
 				onChange={() => {
-					handleAccordionClick("/settings");
+					if (isOpen) {
+						handleAccordionClick("/settings/employees");
+					} else {
+						setIsOpen();
+						handleAccordionClick("/settings/employees");
+					}
 				}}
 				disableGutters={true}
-				expanded={activeLink == "/settings" ? true : false}
+				expanded={
+					activeLink.split("/")[1] == "settings" ? true : false
+				}
 				elevation={0}
 				sx={{
 					width: "100%",
 					padding: "0px",
 					borderRadius: "5px",
-					background: activeLink == "/settings" ? "white" : "#1F2024",
+					background:
+						activeLink.split("/")[1] == "settings"
+							? "white"
+							: "#1F2024",
 				}}
 			>
 				<AccordionSummary
@@ -420,7 +430,9 @@ const Navigation = ({ roleobject }) => {
 					id="panel1-header"
 					sx={{
 						background:
-							activeLink == "/settings" ? "#DCDCDC" : "#1F2024",
+							activeLink.split("/")[1] == "settings"
+								? "#DCDCDC"
+								: "#1F2024",
 						textTransform: "none",
 						display: "flex",
 						alignItems: "center",
@@ -429,7 +441,9 @@ const Navigation = ({ roleobject }) => {
 						padding: "0px 0px",
 						margin: "5px 5px",
 						color:
-							activeLink == "/settings" ? "#1f2024" : "#f2f2f2",
+							activeLink.split("/")[1] == "settings"
+								? "#1f2024"
+								: "#f2f2f2",
 
 						".MuiAccordionSummary-content": {
 							justifyContent: isOpen ? "start" : "center",
@@ -437,25 +451,25 @@ const Navigation = ({ roleobject }) => {
 
 						".path_fill": {
 							fill:
-								activeLink == "/settings"
+								activeLink.split("/")[1] == "settings"
 									? "#1f2024"
 									: "#f2f2f2",
 						},
 						".path_stroke": {
 							stroke:
-								activeLink == "/settings"
+								activeLink.split("/")[1] == "settings"
 									? "#1f2024"
 									: "#f2f2f2",
 						},
 					}}
 				>
-					<SettingsSVG style={{ marginLeft: "3px" }} />
+					<SettingsSVG />
 					<Typography
 						sx={{
-							display: isOpen ? "block" : "none",
+							fontSize: isOpen ? "1rem" : "0rem",
 							transition: "all 500ms",
 						}}
-						mx={"5px"}
+						mx={isOpen ? "5px" : "0px"}
 						fontWeight={700}
 						variant="subtitle1"
 					>
@@ -464,7 +478,14 @@ const Navigation = ({ roleobject }) => {
 				</AccordionSummary>
 				<AccordionDetails>
 					<Typography
+						onClick={() => handleButtonClick("/settings/employees")}
+						color={
+							activeLink == "/settings/employees"
+								? "#000000"
+								: "#8F9098"
+						}
 						sx={{
+							cursor: "pointer",
 							fontSize: isOpen ? "1rem" : "0rem",
 							transition: "all 500ms",
 						}}
@@ -473,7 +494,14 @@ const Navigation = ({ roleobject }) => {
 						Сотрудники
 					</Typography>
 					<Typography
+						onClick={() => handleButtonClick("/settings/roles")}
+						color={
+							activeLink == "/settings/roles"
+								? "#000000"
+								: "#8F9098"
+						}
 						sx={{
+							cursor: "pointer",
 							fontSize: isOpen ? "1rem" : "0rem",
 							transition: "all 500ms",
 						}}

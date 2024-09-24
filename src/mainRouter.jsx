@@ -15,6 +15,8 @@ import { ClientPage } from "./pages/ClientPage";
 import { CategoriesPage } from "./pages/CategoriesPage";
 import { SubCategoriesPage } from "./pages/SubCategoriesPage";
 import { ProductsPage } from "./pages/ProductsPage";
+import { RolesPage } from "./pages/RolesPage";
+import { EmployeesPage } from "./pages/EmployeesPage";
 
 const mainRouter = createBrowserRouter([
 	{
@@ -85,6 +87,16 @@ const mainRouter = createBrowserRouter([
 			{
 				path: "settings",
 				element: <SettingsPage />,
+				children:[
+					{
+						path:"roles",
+						element:<RolesPage/>
+					},
+					{
+						path:"employees",
+						element:<EmployeesPage/>
+					}
+				]
 			},
 		],
 	},

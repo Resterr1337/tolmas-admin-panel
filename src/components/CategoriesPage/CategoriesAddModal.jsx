@@ -14,9 +14,9 @@ const CategoriesAddModal = ({
 
 	return (
 		<Box
-			id={"bannerAdd-modal-backdrop"}
+			id={"category-add-modal-backdrop"}
 			onClick={() => {
-				event.target.id == "bannerAdd-modal-backdrop"
+				event.target.id == "category-add-modal-backdrop"
 					? setIsCategoriesAddModalOpen(false)
 					: null;
 			}}

@@ -171,6 +171,7 @@ const ProductAddModal = ({ isModalOpen, setModalOpen }) => {
 									<SwiperSlide key={index}>
 										<Box
 											sx={{
+												bgcolor:"#F4F7F9",
 												width: "100px",
 												height: "100px",
 												backgroundImage: `url("${objectURL}")`,

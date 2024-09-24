@@ -115,20 +115,31 @@ const Navigation = ({ roleobject }) => {
 					handleButtonClick("/products");
 				}}
 				sx={{
-					background: activeLink == "/products" ? "#DCDCDC" : "none",
+					background:
+						activeLink.split("/")[1] == "products"
+							? "#DCDCDC"
+							: "none",
 					textTransform: "none",
 					display: "flex",
 					alignItems: "center",
 					justifyContent: isOpen ? "start" : "center",
 					gap: "5px",
-					color: activeLink == "/products" ? "#1f2024" : "#f2f2f2",
+					color:
+						activeLink.split("/")[1] == "products"
+							? "#1f2024"
+							: "#f2f2f2",
 
 					".path_fill": {
-						fill: activeLink == "/products" ? "#1f2024" : "#f2f2f2",
+						fill:
+							activeLink.split("/")[1] == "products"
+								? "#1f2024"
+								: "#f2f2f2",
 					},
 					".path_stroke": {
 						stroke:
-							activeLink == "/products" ? "#1f2024" : "#f2f2f2",
+							activeLink.split("/")[1] == "products"
+								? "#1f2024"
+								: "#f2f2f2",
 					},
 				}}
 				fullWidth

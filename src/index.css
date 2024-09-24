@@ -16,3 +16,15 @@ body {
 	-ms-overflow-style: none; 
 	scrollbar-width: none;
 }
+
+
+*{
+	-ms-overflow-style: none; 
+	scrollbar-width: none;
+}
+
+.leaflet-container {
+	height: 100%;
+	width: 100%;
+}
+

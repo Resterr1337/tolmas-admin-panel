@@ -12,6 +12,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { mainRouter } from "./mainRouter.jsx";
 import { RouterProvider } from "react-router-dom";
 
+
+
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
 		<ThemeProvider theme={mainTheme}>

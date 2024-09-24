@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "./components/Layout/Layout";
 import { DashboardPage } from "./pages/DashboardPage";
 import { OrdersPage } from "./pages/OrdersPage";
-import { ProductsPage } from "./pages/ProductsPage";
+import { GoodsPage } from "./pages/GoodsPage";
 import { MarketingPage } from "./pages/MarketingPage";
 import { ClientsPage } from "./pages/ClientsPage";
 import { DeliveryPage } from "./pages/DeliveryPage";
@@ -12,6 +12,9 @@ import { BannerPage } from "./pages/BannerPage";
 import { DiscountPage } from "./pages/DiscountPage";
 import { PromoPage } from "./pages/PromoPage";
 import { ClientPage } from "./pages/ClientPage";
+import { CategoriesPage } from "./pages/CategoriesPage";
+import { SubCategoriesPage } from "./pages/SubCategoriesPage";
+import { ProductsPage } from "./pages/ProductsPage";
 
 const mainRouter = createBrowserRouter([
 	{
@@ -29,33 +32,47 @@ const mainRouter = createBrowserRouter([
 			},
 			{
 				path: "products",
-				element: <ProductsPage />,
+				element: <GoodsPage />,
+				children: [
+					{
+						path: "categories",
+						element: <CategoriesPage />,
+					},
+					{
+						path: "subcategories",
+						element: <SubCategoriesPage />,
+					},
+					{
+						path: "products",
+						element: <ProductsPage />,
+					},
+				],
 			},
 			{
 				path: "marketing",
 				element: <MarketingPage />,
-				children:[
+				children: [
 					{
-						path:"banner",
-						element: <BannerPage/>,
+						path: "banner",
+						element: <BannerPage />,
 					},
 					{
-						path:"discount",
-						element: <DiscountPage/>
+						path: "discount",
+						element: <DiscountPage />,
 					},
 					{
-						path:"promo",
-						element: <PromoPage/>
-					}
-				]
+						path: "promo",
+						element: <PromoPage />,
+					},
+				],
 			},
 			{
 				path: "clients",
 				element: <ClientsPage />,
 			},
 			{
-				path:"clients/:clientID",
-				element: <ClientPage/>
+				path: "clients/:clientID",
+				element: <ClientPage />,
 			},
 			{
 				path: "filials",

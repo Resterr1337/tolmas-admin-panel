@@ -16,9 +16,12 @@
     "@mui/x-charts": "^7.18.0",
     "@mui/x-data-grid": "^7.18.0",
     "@mui/x-date-pickers": "^7.18.0",
+    "@react-leaflet/core": "^2.1.0",
     "dayjs": "^1.11.13",
+    "leaflet": "^1.9.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.26.2",
     "swiper": "^11.1.14",
     "zustand": "^5.0.0-rc.2"
